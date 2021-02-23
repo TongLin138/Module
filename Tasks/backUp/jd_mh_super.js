@@ -2,7 +2,7 @@
  * @Author: shylocks https://github.com/shylocks
  * @Date: 2021-01-11 16:25:41
  * @Last Modified by:   TongLin138
- * @Last Modified time: 2021-01-20 09:00:00
+ * @Last Modified time: 2021-02-23 20:00:00
  */
 
 const $ = new Env('超级直播间幸运值抽京豆');
@@ -84,7 +84,7 @@ function showMsg() {
 
 function getInfo(){
   return new Promise(resolve => {
-    $.get({url:'https://anmp.jd.com/babelDiy/Zeus/3R4rXLC9SwEqeYQ11r8KtXRr1ooK/index.html?wxAppName=jd',
+    $.get({url:'https://anmp.jd.com/babelDiy/Zeus/QNd8tY1iK78Zn2QTh6tLVNyNfNV/index.html?wxAppName=jd',
       headers:{
         Cookie:cookie
       }},(err,resp,data)=>{
@@ -183,7 +183,7 @@ function taskUrl(function_id, body='') {
       'Accept-Language': 'zh-cn',
       'Content-Type': 'application/json;charset=utf-8',
       'Origin': 'wq.jd.com',
-      'User-Agent': 'JD4iPhone/167490 (iPhone; iOS 14.2; Scale/3.00)',
+      'User-Agent': 'jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
       'Referer': `https://anmp.jd.com/babelDiy/Zeus/xKACpgVjVJM7zPKbd5AGCij5yV9/index.html?wxAppName=jd`,
       'Cookie': cookie
     }
@@ -200,7 +200,7 @@ function taskPostUrl(function_id, body) {
       'Accept-Language': 'zh-cn',
       'Content-Type': 'application/x-www-form-urlencoded',
       'Origin': 'https://lzdz-isv.isvjcloud.com',
-      'User-Agent': 'JD4iPhone/167490 (iPhone; iOS 14.2; Scale/3.00)',
+      'User-Agent': 'jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
       'Referer': `https://lzdz-isv.isvjcloud.com/dingzhi/book/develop/activity?activityId=${ACT_ID}`,
       'Cookie': `${cookie} isvToken=${$.isvToken};`
     }
@@ -219,7 +219,7 @@ function TotalBean() {
         "Connection": "keep-alive",
         "Cookie": cookie,
         "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0")
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
       }
     }
     $.post(options, (err, resp, data) => {
