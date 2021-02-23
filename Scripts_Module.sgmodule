@@ -1,0 +1,39 @@
+#!name=Script_Module
+#!desc=HTTP Script Module
+
+[Script]
+# > Script
+# >  AQI-US standard for iOS Weather
+AQI-US standard for iOS Weather = type=http-response, pattern=https://weather-data.apple.com/v1/weather/[\w-]+/[0-9]+\.[0-9]+/[0-9]+\.[0-9]+\?include=,script-path=https://raw.githubusercontent.com/TongLin138/Module/main/backUp/iOS_Weather_AQI_Standard.js,requires-body=1,script-update-interval=86400
+
+# > Box.js
+Box.js = type=http-request,pattern=^https?://boxjs.net,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js,requires-body=1,timeout=120,script-update-interval=86400
+
+# > Display_JD_Historical_Price
+Display_JD_Historical_Price = type=http-response,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js,requires-body=1,script-update-interval=86400
+
+# > Display_Netflix_Ratings(IMDb、douaban)
+Display_Netflix_Ratings = type=http-request,pattern=^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js,script-update-interval=86400
+Display_Netflix_Ratings = type=http-response,pattern=^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js,requires-body=1,script-update-interval=86400
+Display_Netflix_Ratings_Season.js = type=http-response,pattern=^https?://ios\.prod\.ftl\.netflix\.com/iosui/warmer/.+type=show-ath,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating_season.js,requires-body=1,max-size=0,script-update-interval=86400
+
+# > Display_Taobao_Historical _Price
+Display_Taobao_Historical _Price = type=http-request,pattern=^http://.+/amdc/mobileDispatch,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,requires-body=1,script-update-interval=86400
+Display_Taobao_Historical _Price = type=http-response,pattern=^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,requires-body=1,script-update-interval=86400
+
+# > EmbyPremiere
+EmbyPremiere.js = type=http-response,pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice,script-path=https://raw.githubusercontent.com/rartv/SurgeScript/main/EmbyPremiere/EmbyPremiere.js,requires-body=1,max-size=0,script-update-interval=86400
+
+# > Get_JD_LKYLToken
+Get_JD_LKYLToken = type=http-response,pattern=^https:\/\/draw\.jdfcloud\.com(\/mirror)?\/\/api\/user\/addUser\?code=, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_joy_run.js
+Get_JD_LKYLToken = type=http-request,pattern=^https:\/\/draw\.jdfcloud\.com(\/mirror)?\/\/api\/user\/user\/detail\?openId=, max-size=0, script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_joy_run.js
+
+# > Remove_WeChat_ADs
+Remove_WeChat_ADs = type=http-request,pattern=^https://mp\.weixin\.qq\.com/mp/getappmsgad,script-path=https://raw.githubusercontent.com/Choler/Surge/22fc1dfb4bf6683e6924340895780f7c8db5a72f/Script/WeChat.js,script-update-interval=86400
+
+# > Remove_WeiBo_ADs
+Remove_WeiBo_ADs = type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua),script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js,requires-body=1,script-update-interval=86400
+Remove_WeiBo_ADs = type=http-response,pattern=^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist)|video/tiny_stream_video_list|photo/info),script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js,requires-body=1,max-size=-1,script-update-interval=86400
+
+[MITM]
+hostname = %APPEND% api.m.jd.com, api.weibo.cn, draw.jdfcloud.com, ios.prod.ftl.netflix.com, mapi.weibo.com, mb3admin.com, mp.weixin.qq.com, *.uve.weibo.com, trade-acs.m.taobao.com, weather-data.apple.com

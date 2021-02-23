@@ -1,0 +1,16 @@
+#!name=JD_DailyBonus_Cron_Module
+#!desc=JD_Cron Scripts
+
+[Script]
+# > Cron_Job
+# > JD_Cancel_Subs
+JD_Cancel_Subs = type=cron,cronexp="20 8-10 * * *",script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_unsubscribe.js,wake-system=true,timeout=600
+
+# > JD_Car_Exchange
+JD_Car_Exchange = type=cron,cronexp="0 0 * * *",script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_car_exchange.js,wake-system=true,timeout=600
+
+# > JD_Joy_Reward
+JD_Joy_Run = type=cron,cronexp="0 0-16/8 * * *",script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_joy_reward.js,wake-system=true,timeout=600
+
+# > JD_Joy_Run
+JD_Joy_Run = type=cron,cronexp="15 9 * * *",script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_joy_run.js,wake-system=true,timeout=600

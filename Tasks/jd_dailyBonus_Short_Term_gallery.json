@@ -1,0 +1,49 @@
+{
+  "name": "jd_dailyBonus_Short_Term_gallery",
+  "description": "https://github.com/TongLin138/Module",
+  "task": [
+    {
+      "config": "0 0 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, tag=JD_BeanSign , img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true"
+    },
+    {
+      "config": "0 0 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_beauty.js , tag=JD_Beauty , img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true"
+    },
+    {
+      "config": "0 0 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_blueCoin.js , tag=JD_BlueCoin , img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxc.png, enabled=true"
+    },
+    {
+      "config": "0 0 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_car_exchange.js, tag=JD_Car_Exchange, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true"
+    },
+    {
+      "config": "0 0 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_get_share_code.js , tag=JD_Get_Share_Code , img-url=https://raw.githubusercontent.com/yogayyy/task/master/huzhucode.png, enabled=true"
+    },
+    {
+      "config": "1 9,12,20,21 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_global.js , tag=JD_Global , img-url=https://raw.githubusercontent.com/yogayyy/Scripts/main/Icon/lxk0301/jd_global.png, enabled=true"
+    },
+    {
+      "config": "30 1 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_mh.js, tag=JD_MH, img-url=https://raw.githubusercontent.com/yogayyy/Scripts/master/Icon/shylocks/jd_mh.jpg, enabled=true"
+    },
+    {
+      "config": "2 3 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_price.js, tag=JD_Price , img-url=https://raw.githubusercontent.com/ZCY01/img/master/pricev1.png, enabled=true"
+    },
+    {
+      "config": "1 0 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_speed_redpocke.js , tag=JD_Speed_Redpocke , img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true"
+    },
+    {
+      "config": "40 1 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_speed_sign.js , tag=JD_Speed_Sign , img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true"
+    },
+    {
+      "config": "0 0 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_super_coupon.js , tag=JD_Super_Coupon , img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true"
+    },
+    {
+      "config": "45 12 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_unbind.js, tag=JD_Unbind , img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_unbind.png, enabled=true"
+    },
+    {
+      "config": "43 * * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_unsubscribe.js , tag=JD_Unsubscribe , img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true"
+    },
+    {
+      "config": "10 0 * * * https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/jd_wechat_sign.js, tag=JD_Wechat_Sign, img-url=https://raw.githubusercontent.com/yogayyy/Scripts/master/Icon/shylocks/jd_wechat_sign.jpg, enabled=true",
+      "addons": "https://raw.githubusercontent.com/shylocks/Loon/main/quantumultx/jd_wechat_sign.qxrewrite, tag=jd_wechat_sign_COOKIE"
+    },
+  ]
+}

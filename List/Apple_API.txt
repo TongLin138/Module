@@ -1,0 +1,79 @@
+# > Apple_API
+host-suffix, aaplimg.com, Apple_API
+host-suffix, apple.co, Apple_API
+host-suffix, apple.com, Apple_API
+host-suffix, apple-cloudkit.com, Apple_API
+host-suffix, appsto.re, Apple_API
+host-suffix, cdn-apple.com, Apple_API
+host-suffix, cvws.icloud-content.com, Apple_API
+host-suffix, icloud.com, Apple_API
+host-suffix, icloud-content.com, Apple_API
+host-suffix, itunes.com, Apple_API
+host-suffix, me.com, Apple_API
+ip-cidr, 17.0.0.0/8, Apple_API
+ip-cidr, 63.92.224.0/19, Apple_API
+ip-cidr, 65.199.22.0/23, Apple_API
+ip-cidr, 139.178.128.0/18, Apple_API
+ip-cidr, 144.178.0.0/19, Apple_API
+ip-cidr, 144.178.36.0/22, Apple_API
+ip-cidr, 144.178.48.0/20, Apple_API
+ip-cidr, 192.35.50.0/24, Apple_API
+ip-cidr, 198.183.17.0/24, Apple_API
+ip-cidr, 205.180.175.0/24, Apple_API
+
+# > Apple Music
+host,aod.itunes.apple.com, Apple_API
+host,api.smoot.apple.cn, Apple_API
+host,music.apple.com, Apple_API
+host,mvod.itunes.apple.com, Apple_API
+
+# > Apple News and Apple Map TOMTOM Version
+host, gspe1-ssl.ls.apple.com, Apple_API
+user-agent, AppleNews*, Apple_API
+user-agent, com.apple.news*, Apple_API
+host-suffix, apple.news, Apple_API
+host, news-client.apple.com, Apple_API
+host, news-edge.apple.com, Apple_API
+host, news-events.apple.com, Apple_API
+host, apple.comscoreresearch.com, Apple_API
+
+# > Apple Non-China CDN
+host-suffix, hls.itunes.apple.com, Apple_API
+
+# > App Store
+user-agent, com.apple.appstored*, Apple_API
+host-suffix, mzstatic.com, Apple_API
+host, iosapps.itunes.apple.com, Apple_API
+host, osxapps.itunes.apple.com, Apple_API
+
+# > Apple TV
+host, np-edge.itunes.apple.com, Apple_API
+host, play-edge.itunes.apple.com, Apple_API
+host-suffix, tv.apple.com, Apple_API
+
+# > Developer
+host, devimages-cdn.apple.com, Apple_API
+host, devstreaming-cdn.apple.com, Apple_API
+host, js-cdn.music.apple.com, Apple_API
+host, developer.apple.com, Apple_API
+host-suffix, digicert.com, Apple_API
+host, ocsp.verisign.net, Apple_API
+host, testflight.apple.com, Apple_API
+host, sandbox.itunes.apple.com, Apple_API
+host-suffix, apps.apple.com, Apple_API
+host-suffix, blobstore.apple.com, Apple_API
+
+# > iBooks Store download
+host, books.itunes.apple.com, Apple_API
+
+# > iTunes Music Stream
+host-suffix, audio-ssl.itunes.apple.com, Apple_API
+host-suffix, cdn-apple.com, Apple_API
+host, cdn.apple-cloudkit.com, Apple_API
+
+# > Map
+host-suffix, ls.apple.com, Apple_API
+host, gs-loc-cn.apple.com, Apple_API
+
+# > Movie Stream
+host-suffix, hls-amt.itunes.apple.com, Apple_API

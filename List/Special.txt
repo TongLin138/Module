@@ -1,0 +1,51 @@
+# > AD Guard
+host, injections.adguard.org, DIRECT
+host, local.adguard.org, DIRECT
+
+# > iOS Update
+host, supportdownload.apple.com, DIRECT
+host, appldnld.apple.com, DIRECT
+host, swcdn.apple.com, DIRECT
+host, apptrailers.itunes.apple.com, DIRECT
+host, updates-http.cdn-apple.com, DIRECT
+
+# > Download
+host-keyword,announce, DIRECT
+host-keyword,torrent, DIRECT
+host-keyword,tracker, DIRECT
+host-suffix,smtp, DIRECT
+
+# > Google
+host-keyword,mtalk.google.com, DIRECT
+host,safebrowsing.googleapis.com, DIRECT
+host-suffix,dl.google.com, DIRECT
+
+# > Microsoft
+host-suffix,msftconnecttest.com, DIRECT
+
+# > Private Tracker
+host-suffix,m-team.cc, DIRECT
+host-suffix,passthepopcorn.me, DIRECT
+
+# > Proxy Services
+host-suffix,airport-gov-cn.com, DIRECT
+host-suffix,losadhwselfff2332dasd.xyz, DIRECT
+host-suffix,ntt-co-jp.club, DIRECT
+
+# > Steam
+user-agent,Steam*, DIRECT
+host-suffix,pinyuncloud.com, DIRECT
+host-suffix,steamcontent.com, DIRECT
+
+# > Windows
+host-suffix,windows.com, DIRECT
+host-suffix,windows.net, DIRECT
+host-suffix,windowsupdate.com, DIRECT
+
+# > Xunlei
+user-agent,%E8%BF%85%E9%9B%B7, DIRECT
+host-suffix,xunlei.com, DIRECT
+
+# > ZiMuZu
+host-suffix,rrys2019.com, DIRECT
+host-suffix,got002.com, DIRECT
