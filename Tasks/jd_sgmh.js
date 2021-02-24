@@ -2,7 +2,7 @@
  * @Author: lxk0301 https://github.com/lxk0301
  * @Date: 2021-01-12 16:00:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-02-04 12:00:00
+ * @Last Modified time: 2021-02-24 20:00:00
  */
 
 const $ = new Env('闪购盲盒');
@@ -11,7 +11,16 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let appId = '1EFRXxg' , homeDataFunPrefix = 'interact_template', collectScoreFunPrefix = 'harmony', message = ''
 let lotteryResultFunPrefix = homeDataFunPrefix, browseTime = 6
 const inviteCodes = [
-  'T0225KkcRk1N'
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
+  'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA'
 ];
 const randomCount = 0;
 const notify = $.isNode() ? require('./sendNotify') : '';
