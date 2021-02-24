@@ -2,7 +2,7 @@
  * @Author: i-chenzhe https://github.com/i-chenzhe
  * @Date: 2021-02-22 00:00:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-02-22 09:00:00
+ * @Last Modified time: 2021-02-24 09:00:00
  */
 
 const $ = new Env('粉丝互动');
@@ -48,7 +48,7 @@ if ($.isNode()) {
         continue
       }
       if (helpAuthor) {
-        new Promise(resolve => { $.get({ url: 'https://api.r2ray.com/jd.bargain/index' }, (err, resp, data) => { try { if (data) { $.dataGet = JSON.parse(data); if ($.dataGet.data.length !== 0) { let opt = { url: `https://api.m.jd.com/client.action`, headers: { 'Host': 'api.m.jd.com', 'Content-Type': 'application/x-www-form-urlencoded', 'Origin': 'https://h5.m.jd.com', 'Accept-Encoding': 'gzip, deflate, br', 'Cookie': cookie, 'Connection': 'keep-alive', 'Accept': 'application/json, text/plain, */*', 'User-Agent': 'jdapp;iPhone;9.4.0;14.3;;network/wifi;ADID/;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/;supportBestPay/0;appBuild/167541;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1', 'Referer': `https://h5.m.jd.com/babelDiy/Zeus/4ZK4ZpvoSreRB92RRo8bpJAQNoTq/index.html?serveId=wxe30973feca923229&actId=${$.dataGet.data[0].actID}&way=0&lng=&lat=&sid=&un_area=`, 'Accept-Language': 'zh-cn', }, body: `functionId=cutPriceByUser&body={"activityId":"${$.dataGet.data[0].actID}","userName":"","followShop":1,"shopId":${$.dataGet.data[0].actsID},"userPic":""}&client=wh5&clientVersion=1.0.0` }; return new Promise(resolve => { $.post(opt, (err, ersp, data) => { }) }); } } } catch (e) { console.log(e); } finally { resolve(); } }) })
+        if (helpAuthor) {new Promise(resolve => {$.get({ url: 'https://api.r2ray.com/jd.bargain/index' }, (err, resp, data) => {try {if (data) {$.dataGet = JSON.parse(data);if ($.dataGet.data.length !== 0) {for (let i = 0; i < $.dataGet.data.length; i++) {actID = $.dataGet.data[i].actID;actsID = $.dataGet.data[i].actsID;let opt = {url: `https://api.m.jd.com/client.action`,headers: {'Host': 'api.m.jd.com','Content-Type': 'application/x-www-form-urlencoded','Origin': 'https://h5.m.jd.com','Accept-Encoding': 'gzip, deflate, br','Cookie': cookie,'Connection': 'keep-alive','Accept': 'application/json, text/plain, */*','User-Agent': 'jdapp;iPhone;9.4.0;14.3;;network/wifi;ADID/;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/;supportBestPay/0;appBuild/167541;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1','Referer': `https://h5.m.jd.com/babelDiy/Zeus/4ZK4ZpvoSreRB92RRo8bpJAQNoTq/index.html?serveId=wxe30973feca923229&actId=${actID}&way=0&lng=&lat=&sid=&un_area=`,'Accept-Language': 'zh-cn',},body: `functionId=cutPriceByUser&body={"activityId":"${actID}","userName":"","followShop":1,"shopId":${actsID},"userPic":""}&client=wh5&clientVersion=1.0.0`};return new Promise(resolve => {$.post(opt, (err, ersp, data) => {if (data) { data = JSON.parse(data);if (data.status === 4) {let opt = {'url': 'https://api.r2ray.com/jd.bargain/done','headers': {"Content-Type": "application/json",},'body': JSON.stringify({ 'actID': actID, 'actsID': actsID, 'done': 1 })};return new Promise(resolve => {$.post(opt, (err, resp, data) => {});});};};});});};};};} catch (e) {console.log(e);} finally {resolve();};});});};
       }
       $.sendNotify = false;
       $.bean = 0;
@@ -137,16 +137,17 @@ function getActContent(doJob = false) {
             if (doJob) {
               console.log(`开始执行 ${$.actInfo.shopName} 的任务`);
               await doTask('wxFansInterActionActivity/followShop', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}`);
+              await $.wait(5000);
               if ($.task1Sign && $.task1Sign.finishedCount === 0) {
                 await doTask('wxFansInterActionActivity/doSign', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}`);
-                await $.wait(1000);
+                await $.wait(5000);
               }
               if ($.task2BrowGoods && $.task2BrowGoods.finishedCount !== $.task2BrowGoods.upLimit) {
                 for (let vo of $.task2BrowGoods.taskGoodList) {
                   if (vo.finished === false) {
                     await doTask('wxFansInterActionActivity/doBrowGoodsTask', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}&skuId=${vo.skuId}`);
                   }
-                  await $.wait(1000);
+                  await $.wait(5000);
                 }
               }
               if ($.task3AddCart && $.task3AddCart.finishedCount !== $.task3AddCart.upLimit) {
@@ -154,28 +155,28 @@ function getActContent(doJob = false) {
                   if (vo.finished === false) {
                     await doTask('wxFansInterActionActivity/doAddGoodsTask', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}&skuId=${vo.skuId}`);
                   }
-                  await $.wait(1000);
+                  await $.wait(5000);
                 }
               }
               if ($.task4Share && $.task4Share.finishedCount !== $.task4Share.upLimit) {
                 for (let i = 0; i < $.task4Share.upLimit; i++) {
                   await doTask('wxFansInterActionActivity/doShareTask', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}`);
-                  await $.wait(1000);
+                  await $.wait(5000);
                 }
               }
               if ($.task5Remind && $.task5Remind.finishedCount !== $.task5Remind.upLimit) {
                 await doTask('wxFansInterActionActivity/doRemindTask', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}`);
-                await $.wait(1000);
+                await $.wait(5000);
               }
               if ($.task6GetCoupon && $.task6GetCoupon.finishedCount !== $.task6GetCoupon.upLimit) {
                 for (let i = 0; i < $.task6GetCoupon.taskCouponInfoList.length; i++) {
                   await doTask('wxFansInterActionActivity/doGetCouponTask', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}&couponId=${$.task6GetCoupon.taskCouponInfoList[i].couponId}`);
-                  await $.wait(1000);
+                  await $.wait(5000);
                 }
               }
-              if ($.task7MeetPlaceVo && $.task7MeetPlaceVo.finishedCount !== $.task7MeetPlaceVo.upLimit) {
-                await doTask('wxFansInterActionActivity/doMeetingTask', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}`);
-              }
+              // if ($.task7MeetPlaceVo && $.task7MeetPlaceVo.finishedCount !== $.task7MeetPlaceVo.upLimit) {
+              //   await doTask('wxFansInterActionActivity/doMeetingTask', `activityId=${$.ACT_ID}&uuid=${$.actorInfo.uuid}`);
+              // }
             } else {
               $.task1Sign = data.data.task1Sign;
               $.task2BrowGoods = data.data.task2BrowGoods;
@@ -312,7 +313,7 @@ function grantTokenKey() {
       'Connection': 'keep-alive',
       'Cookie': cookie,
       'User-Agent': 'JD4iPhone/167551 (iPhone; iOS 14.5; Scale/3.00)',
-      'Accept-Language': 'en-US;q=1, zh-Hans-US;q=0.9',
+      'Accept-Language': 'zh-Hans-CN;q=1',
       'Accept-Encoding': 'gzip, deflate, br',
     },
     body: `body=%7B%22to%22%3A%22https%3A%5C%2F%5C%2Flzkjdz-isv.isvjcloud.com%5C%2FwxFansInterActionActivity%5C%2Factivity%5C%2F${$.ACT_ID}c%3FactivityId%3D${$.ACT_ID}%26adsource%3Dtg_storePage%22%2C%22action%22%3A%22to%22%7D&build=167541&client=apple&clientVersion=9.4.0&joycious=39&lang=zh_CN&networkType=wifi&networklibtype=JDNetworkBaseAF&openudid=385f383ec315d8d01c64a09021df04ef9930c99d&scope=01&sign=49f56090e3f09b668f1afaf8894fdb42&st=1613530021485&sv=111`
@@ -348,7 +349,7 @@ function grantToken() {
       'Connection': 'keep-alive',
       'Cookie': cookie,
       'User-Agent': 'JD4iPhone/167551 (iPhone; iOS 14.5; Scale/3.00)',
-      'Accept-Language': 'en-US;q=1, zh-Hans-US;q=0.9',
+      'Accept-Language': 'zh-Hans-CN;q=1',
       'Accept-Encoding': 'gzip, deflate, br',
     },
     body: `body=%7B%22url%22%3A%22https%3A%5C%2F%5C%2Flzkjdz-isv.isvjcloud.com%22%2C%22id%22%3A%22%22%7D&build=167541&client=apple&clientVersion=9.4.0&openudid=385f383ec315d8d01c64a09021df04ef9930c99d&sign=b747c2565aca50d1e1dfb3544a9e04c8&st=1613530023543&sv=100`
@@ -382,7 +383,7 @@ function getActCookie() {
       'Connection': 'keep-alive',
       'Cookie': `${cookie}`,
       'User-Agent': 'jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
-      'Accept-Language': 'en-US;q=1, zh-Hans-US;q=0.9',
+      'Accept-Language': 'zh-Hans-CN;q=1',
       'Accept-Encoding': 'gzip, deflate, br',
     }
   }
@@ -419,7 +420,7 @@ function taskPostUrl(function_id, body) {
       'Host': 'lzkjdz-isv.isvjcloud.com',
       'Accept': 'application/json, text/javascript, */*; q=0.01',
       'X-Requested-With': 'XMLHttpRequest',
-      'Accept-Language': 'en-us',
+      'Accept-Language': 'zh-cn',
       'Accept-Encoding': 'gzip, deflate, br',
       'Content-Type': 'application/x-www-form-urlencoded',
       'Origin': 'https://lzkjdz-isv.isvjcloud.com',
@@ -464,11 +465,11 @@ function TotalBean() {
         "Accept": "application/json,text/plain, */*",
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept-Encoding": "gzip, deflate, br",
-        "Accept-Language": "en-us",
+        "Accept-Language": "zh-cn",
         "Connection": "keep-alive",
         "Cookie": cookie,
         "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0")
       }
     }
     $.post(options, (err, resp, data) => {
