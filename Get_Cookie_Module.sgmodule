@@ -10,7 +10,7 @@ iQIYI.js = type=http-request,pattern=^https?:\/\/iface(\d)?\.iqiyi\.com\/,script
 
 # > Get_JD_Cookie
 JD_DailyBonus.js = type=http-request,pattern=https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,max-size=0
-JD_extra_cookie.js = type=http-request,pattern=^https:\/\/wq\.jd\.com\/user_new\/info\/GetJDUserInfoUnion,script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/JD_extra_cookie.js,requires-body=1,max-size=0
+JD_extra_cookie.js = type=http-request,pattern=^https:\/\/me-api\.jd\.com\/user_new\/info\/GetJDUserInfoUnion,script-path=https://raw.githubusercontent.com/TongLin138/Module/main/Tasks/JD_extra_cookie.js,requires-body=1,max-size=0
 
 # > Get_RRTV_Cookie
 rrtv.cookie.js = type=http-request,pattern=^https:\/\/api\.rr\.tv\/user\/profile,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/rrtv/rrtv.cookie.js
@@ -20,4 +20,4 @@ ximalaya.cookie.js = type=http-request,pattern=^https?:\/\/.*\/mobile\-user\/hom
 xmly_speed_ccokie.js = type=http-request,pattern=https:\/\/m\.ximalaya\.com\/speed\/task-center\/account\/coin,script-path=https://raw.githubusercontent.com/TongLin138/Module/main/backUp/xmly_speed_ccokie.js
 
 [MITM]
-hostname = %APPEND% www.52pojie.cn, ifac*.iqiyi.com, api.m.jd.com, wq.jd.com, lkyl.dianpusoft.cn, *.rr.tv, mobwsa.ximalaya.com, m.ximalaya.com
+hostname = %APPEND% www.52pojie.cn, ifac*.iqiyi.com, api.m.jd.com, me-api.jd.com, lkyl.dianpusoft.cn, *.rr.tv, mobwsa.ximalaya.com, m.ximalaya.com
