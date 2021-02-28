@@ -2,7 +2,7 @@
  * @Author: lxk0301 https://github.com/lxk0301
  * @Date: 2021-02-20 15:00:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-02-20 21:00:00
+ * @Last Modified time: 2021-02-28 10:00:00
  */
 
 const $ = new Env('京东保价');
@@ -489,7 +489,11 @@ function totalBean() {
               return;
             }
             $.isLogin = true;
-            $.nickName = data['base'].nickname;
+            if (data['retcode'] === 0) {
+              $.nickName = data['base'].nickname;
+            } else {
+              $.nickName = $.UserName
+            }
           } else {
             console.log(`京东服务器返回空数据`);
           }

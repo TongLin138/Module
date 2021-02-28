@@ -9,11 +9,11 @@ const $ = new Env('京东抽奖机');
 const STRSPLIT = "|";
 const needSum = false;            //是否需要显示汇总
 const printDetail = false;        //是否显示出参详情
-const appIdArr = ['1EFRRxA','1EFRQwA','1EFRTyg','1EFRSyw','1EFRVxA','1EFRUwg','1EFRVyg','1EFRUww','1EFRVxg','1EFRVxw','1EFRUxA','1EFRUxg','1EFRUyw','1EFRUwQ','1EFRVxQ','1EFRXwQ']
+const appIdArr = ['1EFRRxA','1EFRQwA','1EFRTyg','1EFRSyw','1EFRXxg']
 const shareCodeArr = ['T0225A']
-const homeDataFunPrefixArr = ['interact_template','interact_template','','','','','','','','','','','','','']
-const collectScoreFunPrefixArr = ['','','','','','','','','','','','','','']
-const lotteryResultFunPrefixArr = ['','','','','','','','','','','','','','','']
+const homeDataFunPrefixArr = ['interact_template','interact_template','','','','','','','','','','','','','','']
+const collectScoreFunPrefixArr = ['','','','','','','','','','','','','','','']
+const lotteryResultFunPrefixArr = ['','','','','','','','','','','','','','','','']
 let merge = {}
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';

@@ -2,7 +2,7 @@
  * @Author: lxk0301 https://github.com/lxk0301
  * @Date: 2021-01-12 16:00:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-02-24 20:00:00
+ * @Last Modified time: 2021-02-28 10:00:00
  */
 
 const $ = new Env('闪购盲盒');
@@ -22,7 +22,7 @@ const inviteCodes = [
   'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA',
   'T016zIwRN29gi1zWIRP2CjVQmoaT5kRrbA@T0225KkcRB1I_VbWcRz2kPINdQCjVQmoaT5kRrbA@T014zIwRN29gi1XUKACjVQmoaT5kRrbA@T014vP1yRmpoiyCmXgCjVQmoaT5kRrbA@T016aVnzl7qZ_FXWIhvyCjVQmoaT5kRrbA'
 ];
-const randomCount = 0;
+const randomCount = $.isNode() ? 20 : 5;
 const notify = $.isNode() ? require('./sendNotify') : '';
 let merge = {}
 //IOS等用户直接用NobyDa的jd cookie
@@ -352,7 +352,11 @@ function TotalBean() {
               $.isLogin = false; //cookie过期
               return
             }
-            $.nickName = data['base'].nickname;
+            if (data['retcode'] === 0) {
+              $.nickName = data['base'].nickname;
+            } else {
+              $.nickName = $.UserName
+            }
           } else {
             console.log(`京东服务器返回空数据`)
           }

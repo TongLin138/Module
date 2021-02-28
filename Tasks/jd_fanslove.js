@@ -2,7 +2,7 @@
  * @Author: i-chenzhe https://github.com/i-chenzhe
  * @Date: 2021-02-22 00:00:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-02-24 09:00:00
+ * @Last Modified time: 2021-02-28 10:00:00
  */
 
 const $ = new Env('粉丝互动');
@@ -312,7 +312,7 @@ function grantTokenKey() {
       'Accept': '*/*',
       'Connection': 'keep-alive',
       'Cookie': cookie,
-      'User-Agent': 'JD4iPhone/167551 (iPhone; iOS 14.5; Scale/3.00)',
+      'User-Agent': 'JD4iPhone/167538 (iPhone; iOS 14.3; Scale/3.00)',
       'Accept-Language': 'zh-Hans-CN;q=1',
       'Accept-Encoding': 'gzip, deflate, br',
     },
@@ -348,7 +348,7 @@ function grantToken() {
       'Accept': '*/*',
       'Connection': 'keep-alive',
       'Cookie': cookie,
-      'User-Agent': 'JD4iPhone/167551 (iPhone; iOS 14.5; Scale/3.00)',
+      'User-Agent': 'JD4iPhone/167538 (iPhone; iOS 14.3; Scale/3.00)',
       'Accept-Language': 'zh-Hans-CN;q=1',
       'Accept-Encoding': 'gzip, deflate, br',
     },
@@ -382,7 +382,7 @@ function getActCookie() {
       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
       'Connection': 'keep-alive',
       'Cookie': `${cookie}`,
-      'User-Agent': 'jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
+      'User-Agent': 'jdapp;iPhone;9.3.8;14.3;network/wifi;ADID/;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;supportBestPay/0;appBuild/167538;jdSupportDarkMode/0;addressid/0;pv/1.12;apprpd/Babel_Native;ref/JDWebViewController;psq/11;ads/;psn/;jdv/0|;adk/;app_device/IOS;pap/JA2015_311210|9.3.8|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
       'Accept-Language': 'zh-Hans-CN;q=1',
       'Accept-Encoding': 'gzip, deflate, br',
     }
@@ -427,7 +427,7 @@ function taskPostUrl(function_id, body) {
       'Connection': 'keep-alive',
       'Referer': `https://lzkjdz-isv.isvjcloud.com/wxFansInterActionActivity/activity/${$.ACT_ID}?activityId=${$.ACT_ID}&adsource=tg_storePage`,
       'Cookie': `${cookie}`,
-      'User-Agent': 'jdapp;iPhone;9.4.2;14.5;bf1f9a94239880f59a8f3b018a3aadf380e216fc;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;addressid/1065702877;supportBestPay/0;appBuild/167551;jdSupportDarkMode/0;pv/522.13;apprpd/MyJD_MyActivity;ref/MyJdGameToolController;psq/12;ads/;psn/bf1f9a94239880f59a8f3b018a3aadf380e216fc|591;jdv/0|kong|t_1001707023_|jingfen|fb9e8e2760454a0284a698610d76edd3|1613797291324|1613797292;adk/;app_device/IOS;pap/JA2015_311210|9.4.2|IOS 14.5;Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
+      'User-Agent': 'jdapp;iPhone;9.3.8;14.3;network/wifi;ADID/;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,3;supportBestPay/0;appBuild/167538;jdSupportDarkMode/0;addressid/0;pv/1.12;apprpd/Babel_Native;ref/JDWebViewController;psq/11;ads/;psn/;jdv/0|;adk/;app_device/IOS;pap/JA2015_311210|9.3.8|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
     },
     body: body,
   }

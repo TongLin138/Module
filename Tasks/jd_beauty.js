@@ -2,7 +2,7 @@
  * @Author: lxk0301 https://github.com/lxk0301
  * @Date: 2021-02-19 14:25:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-02-22 09:00:00
+ * @Last Modified time: 2021-02-28 10:00:00
  */
 
 const $ = new Env('美丽研究院');
@@ -30,6 +30,10 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
     return;
+  }
+  if (!$.isNode()) {
+    $.msg($.name, 'iOS端不支持websocket，暂不能使用此脚本', '');
+    return
   }
   helpInfo = []
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -134,8 +138,8 @@ async function mr() {
     }
   };
   client.onmessage = async function (e) {
-    if (e.data !== 'pong' && safeGet(e.data)) {
-      let vo = jsonParse(e.data)
+    if (e.data !== 'pong' && e.data && safeGet(e.data)) {
+      let vo = JSON.parse(e.data);
       switch (vo.action) {
         case "get_ad":
           console.log(`当期活动：${vo.data.screen.name}`)
@@ -424,8 +428,8 @@ function getIsvToken() {
     $.post(config, async (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${err},${jsonParse(resp.body)['message']}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
+          console.log(`${$.name} API请求失败，请检查网路重试`);
+          console.log(`${JSON.stringify(err)}`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -458,7 +462,7 @@ function getIsvToken2() {
     $.post(config, async (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${err},${jsonParse(resp.body)['message']}`)
+          console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (safeGet(data)) {
@@ -547,7 +551,11 @@ function TotalBean() {
               $.isLogin = false; //cookie过期
               return
             }
-            $.nickName = data['base'].nickname;
+            if (data['retcode'] === 0) {
+              $.nickName = data['base'].nickname;
+            } else {
+              $.nickName = $.UserName
+            }
           } else {
             console.log(`京东服务器返回空数据`)
           }
