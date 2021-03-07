@@ -2,7 +2,7 @@
  * @Author: lxk0301 https://github.com/lxk0301
  * @Date: 2021-02-19 111:00:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-02-19 21:00:00
+ * @Last Modified time: 2021-03-07 14:00:00
  */
 
 const $ = new Env('女装盲盒抽京豆');
@@ -19,13 +19,7 @@ if ($.isNode()) {
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {
   };
 } else {
-  let cookiesData = $.getdata('CookiesJD') || "[]";
-  cookiesData = jsonParse(cookiesData);
-  cookiesArr = cookiesData.map(item => item.cookie);
-  cookiesArr.reverse();
-  cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
-  cookiesArr.reverse();
-  cookiesArr = cookiesArr.filter(item => item !== "" && item !== null && item !== undefined);
+  cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 
 !(async () => {
@@ -54,6 +48,8 @@ if ($.isNode()) {
         continue
       }
       await jdMh()
+      await jdMh('https://anmp.jd.com/babelDiy/Zeus/gY7ymUmC8ZM74Zw3woiDDQU1naT/index.html?wxAppName=jd')
+      await jdMh('https://anmp.jd.com/babelDiy/Zeus/3UGPT8RMBu4kL2YAYN98MgkcDhRq/index.html?wxAppName=jd')
     }
   }
 })()
@@ -64,8 +60,8 @@ if ($.isNode()) {
     $.done();
   })
 
-async function jdMh() {
-  await getInfo()
+async function jdMh(url) {
+  await getInfo(url)
   await getUserInfo()
   await draw()
   while ($.userInfo.bless >= $.userInfo.cost_bless_one_time) {
@@ -84,10 +80,10 @@ function showMsg() {
   })
 }
 
-function getInfo() {
+function getInfo(url = 'https://anmp.jd.com/babelDiy/Zeus/3DSHPs2xC66RgcCEB8YVLsudqfh5/index.html?wxAppName=jd') {
   return new Promise(resolve => {
     $.get({
-      url: 'https://anmp.jd.com/babelDiy/Zeus/2rjWmdgpwypWAQmLuW3CvJQtBjWL/index.html?wxAppName=jd',
+      url,
       headers: {
         Cookie: cookie
       }
@@ -224,7 +220,11 @@ function TotalBean() {
               $.isLogin = false; //cookie过期
               return
             }
-            $.nickName = data['base'].nickname;
+            if (data['retcode'] === 0) {
+              $.nickName = data['base'].nickname;
+            } else {
+              $.nickName = $.UserName
+            }
           } else {
             console.log(`京东服务器返回空数据`)
           }
