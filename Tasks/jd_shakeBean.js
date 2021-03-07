@@ -2,10 +2,10 @@
  * @Author: i-chenzhe https://github.com/i-chenzhe
  * @Date: 2021-03-01 22:00:00 
  * @Last Modified by: TongLin138
- * @Last Modified time: 2021-03-02 10:00:00
+ * @Last Modified time: 2021-03-07 09:00:00
  */
 
-const $ = Env("京东会员-摇一摇");
+const $ = new Env('京东会员-摇一摇');
 const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
 const notify = $.isNode() ? require("./sendNotify") : "";
 let cookiesArr = [], cookie = "", message = '', helpList = [];
