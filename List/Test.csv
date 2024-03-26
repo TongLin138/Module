@@ -1,0 +1,9 @@
+﻿IP地址,端口,回源端口,TLS,数据中心,地区,城市,TCP延迟(ms),速度(MB/s)
+38.59.243.0,27128,443,TRUE,SJC,North America,San Jose,290,17.27
+38.59.241.97,34237,2096,TRUE,SJC,North America,San Jose,191,16
+37.123.193.49,18008,443,TRUE,SJC,North America,San Jose,203,13.9
+40.112.148.202,2053,443,TRUE,SJC,North America,San Jose,229,10.55
+154.21.92.8,31028,443,TRUE,LAX,North America,Los Angeles,409,10.54
+154.40.33.44,39000,443,TRUE,LAX,North America,Los Angeles,219,10.13
+154.9.237.183,20005,443,TRUE,LAX,North America,Los Angeles,189,8.69
+154.17.22.141,7489,443,TRUE,LAX,North America,Los Angeles,205,8.53
