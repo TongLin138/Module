@@ -1,0 +1,5 @@
+payload:
+  - DOMAIN-KEYWORD,weibo
+  - DOMAIN-KEYWORD,sina
+  - DOMAIN-SUFFIX,linux.do
+  - DOMAIN-SUFFIX,nodeseek.com
