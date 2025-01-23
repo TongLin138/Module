@@ -1,5 +1,8 @@
 payload:
   - DOMAIN-KEYWORD,weibo
   - DOMAIN-KEYWORD,sina
+  - DOMAIN-SUFFIX,xiaohongshu.com
+  - DOMAIN-SUFFIX,xiaohongshu.net
+  - DOMAIN-SUFFIX,xhscdn.com
   - DOMAIN-SUFFIX,linux.do
   - DOMAIN-SUFFIX,nodeseek.com
