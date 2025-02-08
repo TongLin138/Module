@@ -1,10 +1,13 @@
 payload:
-  - DOMAIN-SUFFIX,longuest.com
   - DOMAIN-SUFFIX,longuet.me
   - DOMAIN-SUFFIX,longuet.xyz
   - DOMAIN-SUFFIX,208421.xyz
   - DOMAIN-SUFFIX,meituan.com
   - DOMAIN-KEYWORD,meituan
+  - DOMAIN-SUFFIX,wechat.com
+  - DOMAIN-KEYWORD,wechat
+  - DOMAIN-KEYWORD,weixin
+  - DOMAIN-SUFFIX,deepseek.com
   - DOMAIN,tw02.nat.niin.win
   - DOMAIN,s2.serv00.com
   - IP-CIDR,191.101.132.113/32
@@ -13,6 +16,6 @@ payload:
   - IP-CIDR,47.74.20.213/32
   - IP-CIDR,154.17.236.136/32
   - IP-CIDR,154.26.177.97/32
-  - IP-CIDR,162.250.101.4/32
+  - IP-CIDR,23.94.104.41/32
   - IP-CIDR,23.95.73.98/32
   - IP-CIDR,204.235.242.139/32
