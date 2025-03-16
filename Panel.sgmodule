@@ -4,15 +4,11 @@
 #!icon=https://raw.githubusercontent.com/TongLin138/Module/master/backUp/Myself.jpg
 #!system= ios
 #!category=🐱 CatJs
-#!arguments= script-update:-1 ,icons:globe.asia.australia, icolor:#6699FF, GPT:0 ,HideIP:1, cnTimeout:1000, usTimeout:3000,
-#!arguments-desc= 入口查询超时: cnTimeout\n落地查询超时: usTimeout\n隐藏IP: HideIP \n\n开启为: 1\n关闭为: 0
 
 [Panel]
-NetISP = script-name=NetISP,update-interval=-1
 stream-all = script-name=stream-all, title="StreamAll", content="Reload", update-interval=-1
 CFGPT = script-name=CFGPT,update-interval=-1
 
 [Script]
-NetISP = type=generic,timeout=8,script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/netisp/js/surge.js, script-update-interval={{{script-update}}},argument=icolor={{{icolor}}}&icon={{{icons}}}&GPT={{{GPT}}}&hideIP={{{HideIP}}}&cnTimeout={{{cnTimeout}}}&usTimeout={{{usTimeout}}}
 stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
 CFGPT = type=generic,timeout=6,script-path=https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/modules/Panel/CFGPT/CFGPT_2.js,argument=icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
