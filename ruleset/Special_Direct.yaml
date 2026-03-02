@@ -1,8 +1,6 @@
 payload:
   - DOMAIN-SUFFIX,208421.xyz
   - DOMAIN-SUFFIX,meituan.com
-  - DOMAIN-KEYWORD,weibo
-  - DOMAIN-KEYWORD,sina
   - DOMAIN-KEYWORD,meituan
   - DOMAIN-SUFFIX,wechat.com
   - DOMAIN-KEYWORD,wechat
