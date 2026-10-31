@@ -7,8 +7,6 @@
 
 [Panel]
 stream-all = script-name=stream-all, title="StreamAll", content="Reload", update-interval=-1
-CFGPT = script-name=CFGPT,update-interval=-1
 
 [Script]
-stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
-CFGPT = type=generic,timeout=6,script-path=https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/modules/Panel/CFGPT/CFGPT_2.js,argument=icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
+stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/TongLin138/Module/refs/heads/master/backUp/stream.js
